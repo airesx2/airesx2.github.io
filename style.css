@@ -235,3 +235,29 @@ h2 { font-family: var(--pixel); font-weight: 400; font-size: clamp(34px, 5.5vw, 
 .p-title { font-size: clamp(44px, 8vw, 104px); }
 .page .project { margin-bottom: 70px; }
 .next { margin-bottom: 20px; font-family: var(--pixel); font-size: 14px; text-align: right; }
+
+/* ---------- now badge ---------- */
+.now {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px;
+  font-family: var(--pixel); font-size: 11px; color: var(--peri-deep);
+  border: 1.5px solid var(--peri); padding: 6px 9px 5px; text-decoration: none; background: var(--paper);
+}
+.now i { width: 7px; height: 7px; background: var(--peri-deep); animation: blink 1.4s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .now i { animation: none; } }
+.hero .sub { font-variant: normal; font-style: italic; font-size: 19px; letter-spacing: 0; max-width: 30ch; }
+
+/* ---------- ledger (text rows) ---------- */
+.ledger { margin-top: 64px; }
+.ledger-h { font-family: var(--pixel); font-weight: 400; font-size: 13px; letter-spacing: .15em; color: var(--grey); margin: 0 0 14px; grid-column: 1 / -1; }
+.entry { display: grid; gap: 2px 28px; padding: 16px 0; border-top: 1px dotted var(--ink); }
+.entry p { margin: 0; }
+.e-title { font-weight: 500; font-size: 22px; line-height: 1.25; }
+.e-meta { color: var(--peri-deep); font-style: italic; font-size: 16px; }
+.e-desc { color: var(--ink); max-width: 62ch; }
+@media (min-width: 760px) {
+  .entry { grid-template-columns: 300px 1fr; }
+  .e-meta { grid-column: 1; grid-row: 2; }
+  .e-desc { grid-column: 2; grid-row: 1 / span 2; }
+}
+.people { margin-top: 64px; }

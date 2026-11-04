@@ -25,6 +25,7 @@
   <nav>
     <a href="#work">work</a>
     <a href="#about">about</a>
+    <a href="#next">next</a>
     <a href="#elsewhere">elsewhere</a>
   </nav>
 </header>
@@ -41,43 +42,55 @@
   </figure>
 
   <div class="hero-type">
+    <a class="now" href="walker.html"><i aria-hidden="true"></i>now: shipping Mobile Walker, 20+ beta testers</a>
     <h1>Arie<br>Liang</h1>
-    <p class="sub">(electrical engineering, robotics, computer vision)</p>
+    <p class="sub">I build machines that see, and point them at problems people live with.</p>
   </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<div class="band" id="about"><span>about</span></div>
-
-<section class="about wrap">
-  <div class="about-text">
-    <p class="todo">Write: a short intro in your own voice. Who you are, what you build, why. 3 to 5 sentences.</p>
-  </div>
-  <figure class="px about-photo" data-label="workbench 0.91">
-    <img src="images/about.jpg" alt="My workbench">
-  </figure>
 </section>
 
 <!-- ============ WORK ============ -->
 <div class="band" id="work"><span>work</span></div>
 
-<!-- Each tile links to its own page. Status sits where a price would. -->
 <section class="catalog wrap" aria-label="Projects">
   <a class="item big" href="walker.html">
     <figure class="px" data-label="walker 0.97"><img src="images/walker-1.jpg" alt=""></figure>
-    <div class="item-text"><h3>Mobile Walker</h3><p>Navigation app for visually impaired seniors</p></div>
+    <div class="item-text"><h3>Mobile Walker</h3><p>A phone camera on a walker that guides visually impaired seniors through their own homes</p></div>
     <span class="tag">in beta</span>
   </a>
   <a class="item big" href="passionjuice.html">
     <figure class="px" data-label="mr_drone 0.98"><img src="images/drone-1.jpg" alt=""></figure>
-    <div class="item-text"><h3>PassionJuice</h3><p>Self-built drone with onboard tree detection</p></div>
-    <span class="tag">flying</span>
+    <div class="item-text"><h3>PassionJuice</h3><p>A drone I built alone that spots trees from the air and suggests what to plant</p></div>
+    <span class="tag">10+ flights</span>
   </a>
   <a class="item" href="gteam.html">
     <figure class="px" data-label="g_team 0.92"><img src="images/gteam.jpg" alt=""></figure>
-    <div class="item-text"><h3>G-Team</h3><p>All-girls VEX robotics team</p></div>
+    <div class="item-text"><h3>G-Team</h3><p>All-girls VEX team, 5 to 14 members</p></div>
     <span class="tag">co-captain</span>
   </a>
+  <a class="item" href="pid.html">
+    <figure class="px" data-label="pid_arm 0.86"><img src="images/pid.jpg" alt=""></figure>
+    <div class="item-text"><h3>PID arm</h3><p>Single-axis control demonstrator</p></div>
+    <span class="tag">in progress</span>
+  </a>
+</section>
+
+<section class="ledger wrap" aria-label="Along the way">
+  <h3 class="ledger-h">along the way</h3>
+  <div class="entry">
+    <p class="e-title">Autonomous RoboCar</p>
+    <p class="e-meta">UC COSMOS, UC Santa Cruz, summer 2025</p>
+    <p class="e-desc">Camera and LIDAR line and car following. Tuned the PID distance control.</p>
+  </div>
+  <div class="entry">
+    <p class="e-title">Hidden-data detector</p>
+    <p class="e-meta">ML intern, EinsNeXT, Hsinchu, Taiwan, summer 2025</p>
+    <p class="e-desc">Trained a model to find data hidden inside images. Built an ML + quantum attack detector (99%+ accuracy) and reported to the CTO.</p>
+  </div>
+</section>
+
+<!-- ============ PEOPLE ============ -->
+<section class="catalog wrap people" aria-label="Community">
+  <h3 class="ledger-h">bringing people in</h3>
   <a class="item" href="codeoff.html">
     <figure class="px" data-label="code_off 0.90"><img src="images/codeoff.jpg" alt=""></figure>
     <div class="item-text"><h3>Code-Off</h3><p>District coding competition and Code Nights</p></div>
@@ -85,14 +98,40 @@
   </a>
   <a class="item" href="blushacks.html">
     <figure class="px" data-label="blus_hacks 0.89"><img src="images/blushacks.jpg" alt=""></figure>
-    <div class="item-text"><h3>Blu's Hacks</h3><p>School hackathon</p></div>
-    <span class="tag">co-host</span>
+    <div class="item-text"><h3>Blu's Hacks</h3><p>12-hour school hackathon</p></div>
+    <span class="tag">lead organizer</span>
   </a>
-  <a class="item" href="pid.html">
-    <figure class="px" data-label="pid_arm 0.86"><img src="images/pid.jpg" alt=""></figure>
-    <div class="item-text"><h3>PID arm</h3><p>Single-axis control demonstrator</p></div>
-    <span class="tag">in progress</span>
-  </a>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<div class="band" id="about"><span>about</span></div>
+
+<!-- DRAFT: written from what you've told me. Rewrite in your own voice. -->
+<section class="about wrap">
+  <div class="about-text">
+    <p>I grew up in Tainan, next door to an electronics shop, and spent a lot of my childhood in my grandfather's factory watching his machines run. He left school after elementary, taught himself trigonometry, and built a company with more than ten patents. His rule was: what I don't know, I'll ask anyone until I do.</p>
+    <p>I started in software, with CTFs, hackathons and an ML internship. Then I wanted my code to do something in the physical world. Now most of what I build has the same shape: a camera, a model, and hardware that acts on what it sees, aimed at a real person or place.</p>
+    <p>I want to start a company, the way he did.</p>
+  </div>
+  <figure class="px about-photo" data-label="workbench 0.91">
+    <img src="images/about.jpg" alt="My workbench">
+  </figure>
+</section>
+
+<!-- ============ NEXT ============ -->
+<div class="band" id="next"><span>next</span></div>
+
+<section class="ledger wrap" aria-label="What's next">
+  <div class="entry">
+    <p class="e-title">Mobile Walker on the App Store</p>
+    <p class="e-meta">with Halcyon</p>
+    <p class="e-desc">Public release, then partnerships with stores like Walmart and Target so visually impaired seniors can shop on their own.</p>
+  </div>
+  <div class="entry">
+    <p class="e-title">Locust detection</p>
+    <p class="e-meta">PassionJuice</p>
+    <p class="e-desc">Teach the drone to spot locust swarms before they reach crops, for farms in Africa.</p>
+  </div>
 </section>
 
 <!-- ============ LINKS ============ -->
