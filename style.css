@@ -142,6 +142,15 @@ h1 {
   background: var(--paper); padding: 2px 5px;
 }
 
+.px.locked { cursor: pointer; }
+.px.locked canvas.dither { cursor: pointer; }
+.px.locked::after {
+  content: "locked \00b7  click to view";
+  position: absolute; bottom: 8px; left: 10px;
+  font-family: var(--pixel); font-size: 10px; color: var(--peri-deep);
+  background: var(--paper); padding: 2px 5px; pointer-events: none;
+}
+
 /* ---------- projects ---------- */
 .project { margin-bottom: 120px; }
 .p-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; border-bottom: 1px dotted var(--ink); padding-bottom: 10px; }

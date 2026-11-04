@@ -140,7 +140,7 @@
       go(0);
     };
     const resolve = () => {
-      if (fig.classList.contains("missing") || state === "clear") return;
+      if (fig.classList.contains("missing") || fig.classList.contains("locked") || state === "clear") return;
       state = "clear";
       const b = base(), steps = reduce ? [] : [b * 0.7, b * 0.45, b * 0.25, 2].map(v => Math.max(2, Math.round(v)));
       run(steps, () => { cv.style.opacity = 0; fig.classList.add("clear"); });
@@ -160,9 +160,49 @@
     const ready = () => fig._redraw();
     const fail = () => { fig.classList.add("missing"); fig.dataset.file = img.getAttribute("src"); fig._img = null; fig._redraw(); };
     if (!img) { fig.classList.add("missing"); fig._redraw(); return; }
-    if (img.complete) (img.naturalWidth ? ready() : fail());
     img.addEventListener("load", ready);
+    if (img.dataset.enc) {
+      fig.classList.add("locked"); fig._img = null;
+      fig.addEventListener("click", () => { if (fig.classList.contains("locked")) unlock(); });
+      locked.push(fig);
+      return;
+    }
+    if (img.complete) (img.naturalWidth ? ready() : fail());
     img.addEventListener("error", fail);
+  }
+
+  // ---------- locked photos: AES-GCM, key from the password (PBKDF2) ----------
+  const locked = [];
+  const KEY = "pf-pass";
+  async function decrypt(buf, pass) {
+    const b = new Uint8Array(buf), salt = b.slice(0, 16), iv = b.slice(16, 28);
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: 310000, hash: "SHA-256" },
+      base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    return crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, b.slice(28));
+  }
+  async function open(pass, quiet) {
+    let ok = false;
+    for (const fig of locked.slice()) {
+      const img = fig.querySelector("img"), file = img.dataset.enc;
+      const res = await fetch(file).catch(() => null);
+      if (!res || !res.ok) {
+        fig.classList.remove("locked"); fig.classList.add("missing"); fig.dataset.file = file; fig._redraw();
+        locked.splice(locked.indexOf(fig), 1); continue;
+      }
+      try {
+        const plain = await decrypt(await res.arrayBuffer(), pass);
+        img.src = URL.createObjectURL(new Blob([plain], { type: "image/jpeg" }));
+        fig._img = img; fig.classList.remove("locked");
+        locked.splice(locked.indexOf(fig), 1); ok = true;
+      } catch (e) { /* wrong password */ }
+    }
+    if (ok) { try { sessionStorage.setItem(KEY, pass); } catch (e) {} }
+    else if (!quiet && locked.length) alert("Wrong password.");
+  }
+  function unlock() {
+    const pass = prompt("Password:");
+    if (pass) open(pass);
   }
 
   const figs = [...document.querySelectorAll(".px")];
@@ -177,4 +217,5 @@
   addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(drawAll);
   drawAll();
+  if (locked.length) { let p = null; try { p = sessionStorage.getItem(KEY); } catch (e) {} if (p) open(p, true); }
 })();
