@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arie Liang</title>
+<meta name="description" content="Arie Liang: hardware, robotics and computer vision projects.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  HOW TO EDIT
+  - Every gray dashed box marked "write" is a spot for YOUR text. Delete the
+    <p class="todo">...</p> and replace it with your own <p>...</p> paragraphs.
+  - Photos go in the images/ folder with the exact file names used below
+    (or change the src="" to match your files). Missing photos show as a
+    dotted placeholder with the file name, so you can see what is left.
+  - data-label on a figure is the little "detection box" tag that appears
+    when someone hovers the photo. Keep it short, lowercase, with a score.
+-->
+
+<header class="top">
+  <a class="mark" href="#">arie liang</a>
+  <nav>
+    <a href="#work">work</a>
+    <a href="#about">about</a>
+    <a href="#elsewhere">elsewhere</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" aria-label="Intro">
+  <canvas class="cloud" data-seed="7" data-anchor="tl" aria-hidden="true"></canvas>
+  <canvas class="loops" data-seed="3" aria-hidden="true"></canvas>
+  <p class="vertical" aria-hidden="true">Arieana Liang</p>
+
+  <figure class="px hero-photo" data-label="arie 0.99">
+    <img src="images/hero.jpg" alt="Arie with the drone">
+  </figure>
+
+  <div class="hero-type">
+    <h1>Arie<br>Liang</h1>
+    <p class="sub">(electrical engineering, robotics, computer vision)</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<div class="band" id="about"><span>about</span></div>
+
+<section class="about wrap">
+  <div class="about-text">
+    <p class="todo">Write: a short intro in your own voice. Who you are, what you build, why. 3 to 5 sentences.</p>
+  </div>
+  <figure class="px about-photo" data-label="workbench 0.91">
+    <img src="images/about.jpg" alt="My workbench">
+  </figure>
+</section>
+
+<!-- ============ WORK ============ -->
+<div class="band" id="work"><span>work</span></div>
+
+<!-- Each tile links to its own page. Status sits where a price would. -->
+<section class="catalog wrap" aria-label="Projects">
+  <a class="item big" href="walker.html">
+    <figure class="px" data-label="walker 0.97"><img src="images/walker-1.jpg" alt=""></figure>
+    <div class="item-text"><h3>Mobile Walker</h3><p>Navigation app for visually impaired seniors</p></div>
+    <span class="tag">in beta</span>
+  </a>
+  <a class="item big" href="passionjuice.html">
+    <figure class="px" data-label="mr_drone 0.98"><img src="images/drone-1.jpg" alt=""></figure>
+    <div class="item-text"><h3>PassionJuice</h3><p>Self-built drone with onboard tree detection</p></div>
+    <span class="tag">flying</span>
+  </a>
+  <a class="item" href="gteam.html">
+    <figure class="px" data-label="g_team 0.92"><img src="images/gteam.jpg" alt=""></figure>
+    <div class="item-text"><h3>G-Team</h3><p>All-girls VEX robotics team</p></div>
+    <span class="tag">co-captain</span>
+  </a>
+  <a class="item" href="codeoff.html">
+    <figure class="px" data-label="code_off 0.90"><img src="images/codeoff.jpg" alt=""></figure>
+    <div class="item-text"><h3>Code-Off</h3><p>District coding competition and Code Nights</p></div>
+    <span class="tag">150+ people</span>
+  </a>
+  <a class="item" href="blushacks.html">
+    <figure class="px" data-label="blus_hacks 0.89"><img src="images/blushacks.jpg" alt=""></figure>
+    <div class="item-text"><h3>Blu's Hacks</h3><p>School hackathon</p></div>
+    <span class="tag">co-host</span>
+  </a>
+  <a class="item" href="pid.html">
+    <figure class="px" data-label="pid_arm 0.86"><img src="images/pid.jpg" alt=""></figure>
+    <div class="item-text"><h3>PID arm</h3><p>Single-axis control demonstrator</p></div>
+    <span class="tag">in progress</span>
+  </a>
+</section>
+
+<!-- ============ LINKS ============ -->
+<div class="band" id="elsewhere"><span>elsewhere</span></div>
+
+<section class="links wrap">
+  <ul>
+    <li><a href="https://github.com/airesx2">GitHub</a><span>airesx2</span></li>
+    <li><a href="#">LinkedIn</a><span><!-- add --></span></li>
+    <li><a href="#">PassionJuice build log</a><span>Google Slides</span></li>
+    <li><a href="mailto:you@example.com">Email</a><span><!-- add --></span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="wrap foot">
+  <canvas class="cloud small" data-seed="11" data-anchor="br" aria-hidden="true"></canvas>
+  <p>Arie Liang, San Jose, 2026</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
