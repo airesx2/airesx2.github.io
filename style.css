@@ -272,3 +272,11 @@ h2 { font-family: var(--pixel); font-weight: 400; font-size: clamp(34px, 5.5vw, 
 .pair { display: grid; gap: 14px; margin: -30px 0 44px; }
 .pair .px { aspect-ratio: 4 / 3; }
 @media (min-width: 760px) { .pair { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- project galleries: real photo shapes, no cropping ---------- */
+.project .gallery { display: block; columns: var(--cols, 2); column-gap: 14px; margin-bottom: 44px; }
+.project .gallery .px { break-inside: avoid; margin: 0 0 14px; width: 100%; aspect-ratio: 4 / 3; min-height: 0 !important; }
+.project .gallery .px img { object-fit: contain; background: var(--paper); }
+.project .gallery .px .box { opacity: 0; transition: opacity .15s; }
+.project .gallery .px:hover .box { opacity: 1; }
+@media (max-width: 640px) { .project .gallery { columns: 1; } }

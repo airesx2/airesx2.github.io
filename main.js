@@ -117,6 +117,22 @@
 
   function setupFig(fig, k) {
     const img = fig.querySelector("img");
+    // Project pages: show the real photo at its own shape, no dither.
+    if (fig.closest(".project")) {
+      if (fig.dataset.label) {
+        const bx = document.createElement("div");
+        bx.className = "box"; bx.innerHTML = "<span></span>";
+        bx.firstChild.textContent = fig.dataset.label; fig.appendChild(bx);
+      }
+      fig._redraw = () => {};
+      if (!img) { fig.classList.add("missing"); return; }
+      const ok = () => { fig.style.aspectRatio = img.naturalWidth + " / " + img.naturalHeight; fig.classList.remove("missing"); fig.classList.add("clear"); };
+      const bad = () => { fig.classList.add("missing"); fig.dataset.file = img.getAttribute("src"); };
+      if (img.complete && img.getAttribute("src")) (img.naturalWidth ? ok() : bad());
+      img.addEventListener("load", ok);
+      img.addEventListener("error", bad);
+      return;
+    }
     const cv = document.createElement("canvas");
     cv.className = "dither"; cv.setAttribute("aria-hidden", "true");
     fig.appendChild(cv);
@@ -205,6 +221,10 @@
     if (pass) open(pass);
   }
 
+  document.querySelectorAll(".project .gallery").forEach(g => {
+    const n = g.querySelectorAll(".px").length;
+    g.style.setProperty("--cols", n >= 3 ? 3 : n >= 2 ? 2 : 1);
+  });
   const figs = [...document.querySelectorAll(".px")];
   figs.forEach(setupFig);
 
