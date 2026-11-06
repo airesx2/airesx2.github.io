@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomous RoboCar, Arie Liang</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+<!-- Replace each gray dashed "Write" box with your own <p>...</p> paragraphs. -->
+<header class="top">
+  <a class="mark" href="index.html">arie liang</a>
+  <nav><a href="index.html#work">all work</a></nav>
+</header>
+<canvas class="cloud page-cloud" data-seed="21" data-anchor="tl" aria-hidden="true"></canvas>
+<main>
+<article class="project wrap">
+  <header class="p-head">
+    <h1 class="p-title">RoboCar</h1>
+    <p class="when">July 2025</p>
+  </header>
+  <dl class="meta">
+    <div><dt>Program</dt><dd>UC COSMOS at UC Santa Cruz, Cluster 13: Safe and Secure Autonomous Systems. Four weeks, residential, under 10% admitted.</dd></div>
+    <div><dt>Role</dt><dd>Research student, team of 5</dd></div>
+    <div><dt>Built with</dt><dd>NVIDIA Jetson TX2, Ubuntu 18.04, JetPack 4.6.6, ROS, camera and LIDAR</dd></div>
+    <div><dt>Poster</dt><dd><a href="images/cosmos-poster.jpg">Autonomous RoboCar Revitalization</a></dd></div>
+  </dl>
+  <div class="gallery gt-gallery">
+    <figure class="px" data-label="team_c13 0.95" style="--ar: 1.332"><img src="images/cosmos-1.jpg" alt="Our team in the lab with the RoboCar on the desk"></figure>
+    <figure class="px" data-label="flash_error 0.88" style="--ar: 1.335"><img src="images/cosmos-2.jpg" alt="NVIDIA SDK Manager failing to flash the Jetson TX2"></figure>
+    <figure class="px" data-label="poster 0.97" style="--ar: 0.75"><a href="images/cosmos-poster.jpg"><img src="images/cosmos-poster.jpg" alt="Our research poster, Autonomous RoboCar Revitalization"></a></figure>
+  </div>
+  <div class="notes">
+    <section><h3>What we built</h3><p>Our cluster got an old RoboRacer car and one goal: bring it back to life and give it a camera for autonomous driving. When the first car couldn't be saved, we moved to a second one and built line following with the camera and LIDAR, then a follower car that holds a set distance behind the car in front.</p><p>I worked on the line and car following and tuned the PID distance control, adjusting the P and D terms by trial and error until the follower stopped surging and swerving.</p></section>
+    <section><h3>What broke</h3><p>Almost everything on the first car. The GUI wouldn't boot. We reinstalled Ubuntu 20.04, then learned the Jetson TX2 doesn't support it. A second host PC with 18.04 had the wrong network drivers and no internet. SDK Manager crashed on a UTF-8 decode error until we patched the script with errors='replace'. We finally flashed it by hand from the terminal and the GUI came up, but the flash left the USB ports dead.</p><p>On the second car, velocity came out as NaN because the previous and current time variables were never initialized. Then it shut down on every launch. Code looked fine, so we ran it off a wall socket instead of the battery. It was hardware. We tuned the voltage with a potentiometer and it drove.</p></section>
+    <section><h3>What I learned</h3><p>Set a deadline to pivot. We gave the first car until a fixed day, then switched, and that's the only reason we finished. Check compatibility before you install anything. And when the code looks right, test the hardware.</p></section>
+    <section><h3>Results</h3><p>A follower car that tracks the line and holds its distance behind the car ahead, filmed for our final demo. We presented our poster to the program.</p><p class="credit">Team: Sean Coleman, Elina Fan, Jaden Lee, Brian Yuan.</p></section>
+  </div>
+</article>
+<nav class="next wrap"><a href="walker.html">next: Mobile Walker</a></nav>
+</main>
+<footer class="wrap foot">
+  <canvas class="cloud small" data-seed="43" data-anchor="br" aria-hidden="true"></canvas>
+  <p>Arie Liang, San Jose, 2026</p>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
