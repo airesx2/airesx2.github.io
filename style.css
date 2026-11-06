@@ -298,3 +298,20 @@ h2 { font-family: var(--pixel); font-weight: 400; font-size: clamp(34px, 5.5vw, 
   .project .walker-gallery > [data-slot=voice] { grid-area: 3 / 3 / 4 / 4; }
   .project .walker-gallery > [data-slot=person] { grid-area: 4 / 3 / 5 / 4; }
 }
+
+/* passionjuice page: three even rows, Build / Fly / See */
+.stage-label { font-size: 16px; line-height: 1.35; margin: 18px 0 8px; break-inside: avoid; }
+.stage-label .v { display: inline-block; font-family: var(--pixel); font-size: 11px; background: var(--peri); color: #fff; padding: 4px 6px 3px; margin-right: 6px; vertical-align: 2px; }
+.stage-label em { color: var(--peri-deep); font-size: 15px; margin-left: 4px; }
+.project .pj-gallery { display: grid; columns: auto; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: auto; }
+.project .pj-gallery > .stage-label { grid-column: 1 / -1; margin: 22px 0 0; }
+.project .pj-gallery > .stage-label:first-child { margin-top: 0; }
+.project .pj-gallery > .px { margin: 0; min-width: 0; aspect-ratio: 3 / 4 !important; }
+.project .pj-gallery > .px.wide { grid-column: 1 / -1; aspect-ratio: 3 / 2 !important; }
+.project .pj-gallery > .px img { object-fit: cover; }
+.project .pj-gallery img[src*="drone-3"] { object-position: center top; }
+@media (min-width: 641px) {
+  .project .pj-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: none; }
+  .project .pj-gallery > .px.wide { grid-column: span 2; aspect-ratio: auto !important; }
+  .project .pj-gallery > .px.wide img { position: absolute; inset: 0; }
+}
