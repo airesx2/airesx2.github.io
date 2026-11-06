@@ -325,3 +325,4 @@ h2 { font-family: var(--pixel); font-weight: 400; font-size: clamp(34px, 5.5vw, 
   .project .gt-gallery { flex-direction: column; }
   .project .gt-gallery > .px { flex: none; width: 100%; }
 }
+.notes .credit { font-size: 15px; color: var(--grey); font-style: italic; }
