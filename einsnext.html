@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EinsNeXT Internship, Arie Liang</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+<!-- Replace each gray dashed "Write" box with your own <p>...</p> paragraphs. -->
+<header class="top">
+  <a class="mark" href="index.html">arie liang</a>
+  <nav><a href="index.html#work">all work</a></nav>
+</header>
+<canvas class="cloud page-cloud" data-seed="27" data-anchor="tl" aria-hidden="true"></canvas>
+<main>
+<article class="project wrap">
+  <header class="p-head">
+    <h1 class="p-title">EinsNeXT</h1>
+    <p class="when">June to July 2025</p>
+  </header>
+  <dl class="meta">
+    <div><dt>Role</dt><dd>ML and quantum computing intern, full time, reporting to the CTO</dd></div>
+    <div><dt>Company</dt><dd>EinsNeXT PTE Ltd., an AGI startup in Zhubei, Hsinchu, Taiwan</dd></div>
+    <div><dt>Built with</dt><dd>Python, PyTorch, NVIDIA CUDA-Q, NSL-KDD</dd></div>
+    <div><dt>Code</dt><dd><a href="https://github.com/airesx2/Internship-2025">GitHub repo</a></dd></div>
+  </dl>
+  <div class="gallery gt-gallery">
+    <figure class="px" data-label="intern 0.93" style="--ar: 0.75"><img src="images/eins-1.jpg" alt="Training a CNN at my desk at EinsNeXT"></figure>
+    <figure class="px" data-label="grad_cam 0.81" style="--ar: 1.524"><img src="images/eins-2.jpg" alt="Grad-CAM on Food-101: true chicken curry, predicted paella"></figure>
+    <figure class="px" data-label="cuda_q 0.92" style="--ar: 1.778"><img src="images/eins-3.jpg" alt="A CUDA-Q quantum computing lab open on my work station"></figure>
+  </div>
+  <div class="notes">
+    <section><h3>What I built</h3><p>I was recruited the summer before 11th grade and spent four weeks full time learning machine learning and quantum computing from zero. On the ML side I learned a full PyTorch workflow and trained CNNs on FashionMNIST, Oxford Pets and Food-101, plus a steganography detector that flags images with hidden data inside.</p><p>On the quantum side I worked through NVIDIA's CUDA-Q labs, built a Grover's algorithm password cracker, and simulated a circuit-injection attack that slips malicious gates into a quantum circuit.</p><p>Then I pitched my own project to tie the month together: a network intrusion detector trained on NSL-KDD, a standard dataset of real network attacks. A PyTorch model handles the confident cases and a CUDA-Q filter checks the uncertain ones.</p></section>
+    <section><h3>What broke</h3><p>My Oxford Pets model finished 30 epochs with a training loss of 0.10 and a test accuracy of 17.99%. I had shrunk the images to train faster without a GPU, and it memorized the training set instead of learning pets.</p><p>On Food-101, with 101 classes, I ran a grid search over learning rate, weight decay and dropout, then used Grad-CAM to see where the model looked when it called chicken curry paella. I also built ensembles, and my supervisor pointed out they weren't practical for this.</p></section>
+    <section><h3>What I learned</h3><p>Features beat models. Adding logged-in status and destination bytes took my detector from about 50% to about 90% before I touched the architecture.</p><p>A high number doesn't mean a hard problem. NSL-KDD with a random split is known to be easy, and my quantum filter is a set of threshold checks a normal if statement could do. The quantum half taught me CUDA-Q. It didn't make the detector better, and I'd rather say that than oversell it.</p></section>
+    <section><h3>Results</h3><p>The detector reached 99.72% accuracy on 5,039 test samples. My CUDA-Q work is on GitHub, 48 commits. I spent my last week researching quantum computing with a college intern, and alpha tested a coworker's AI model.</p></section>
+  </div>
+</article>
+<nav class="next wrap"><a href="cosmos.html">next: RoboCar</a></nav>
+</main>
+<footer class="wrap foot">
+  <canvas class="cloud small" data-seed="43" data-anchor="br" aria-hidden="true"></canvas>
+  <p>Arie Liang, San Jose, 2026</p>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
