@@ -28,7 +28,7 @@
   <div class="gallery gt-gallery">
     <figure class="px" data-label="team_c13 0.95" style="--ar: 1.332"><img src="images/cosmos-1.jpg" alt="Our team in the lab with the RoboCar on the desk"></figure>
     <figure class="px" data-label="flash_error 0.88" style="--ar: 1.335"><img src="images/cosmos-2.jpg" alt="NVIDIA SDK Manager failing to flash the Jetson TX2"></figure>
-    <figure class="px" data-label="poster 0.97" style="--ar: 0.75"><a href="images/cosmos-poster.jpg"><img src="images/cosmos-poster.jpg" alt="Our research poster, Autonomous RoboCar Revitalization"></a></figure>
+    <figure class="vid" style="--ar: 0.5625"><video src="images/cosmos-demo.mp4" poster="images/cosmos-demo.jpg" autoplay muted loop playsinline aria-label="Final demo: the follower car tracks the line and holds its distance behind the lead car"></video><span class="vid-tag">follower_car 0.96</span></figure>
   </div>
   <div class="notes">
     <section><h3>What we built</h3><p>Our cluster got an old RoboRacer car and one goal: bring it back to life and give it a camera for autonomous driving. When the first car couldn't be saved, we moved to a second one and built line following with the camera and LIDAR, then a follower car that holds a set distance behind the car in front.</p><p>I worked on the line and car following and tuned the PID distance control, adjusting the P and D terms by trial and error until the follower stopped surging and swerving.</p></section>
