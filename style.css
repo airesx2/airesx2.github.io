@@ -316,3 +316,12 @@ h2 { font-family: var(--pixel); font-weight: 400; font-size: clamp(34px, 5.5vw, 
   .project .pj-gallery > .px.wide img { position: absolute; inset: 0; }
 }
 .e-soon { display: inline-block; font-family: var(--pixel); font-size: 10px; font-weight: 400; letter-spacing: .08em; background: var(--peri); color: #fff; padding: 4px 6px 3px; margin-left: 8px; vertical-align: 4px; }
+
+/* g-team page: one justified row, every photo the same height */
+.project .gt-gallery { display: flex; gap: 14px; columns: auto; }
+.project .gt-gallery > .px { flex: var(--ar) 1 0; aspect-ratio: var(--ar) !important; margin: 0; min-width: 0; }
+.project .gt-gallery > .px img { object-fit: cover; }
+@media (max-width: 640px) {
+  .project .gt-gallery { flex-direction: column; }
+  .project .gt-gallery > .px { flex: none; width: 100%; }
+}
