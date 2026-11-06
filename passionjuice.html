@@ -20,7 +20,7 @@
     <p class="when">2026 to now</p>
   </header>
   <dl class="meta">
-    <div><dt>Role</dt><dd>Solo build, self-funded</dd></div>
+    <div><dt>Role</dt><dd>Solo build, self-funded, FAA TRUST certified</dd></div>
     <div><dt>Hardware</dt><dd>QAV250 frame, SpeedyBee F405 V5 stack, M8N GPS, ExpressLRS radio, Remote ID module</dd></div>
     <div><dt>Vision</dt><dd>YOLOv8n tree detector exported to ONNX on a Raspberry Pi Zero 2W, Flask web app (Tree Dex)</dd></div>
     <div><dt>Links</dt><dd><a href="https://github.com/airesx2/PassionJuice">GitHub repo</a>, <a href="https://docs.google.com/presentation/d/1nEofchMasy27EcYtwU0i3Pb7w4pghgpwYOgNFogjeMs/edit">build log</a> <!-- paste your Slides share link --></dd></div>
@@ -41,10 +41,10 @@
     <figure class="px wide" data-label="tree_dex 0.93"><img src="images/drone-3.jpg" alt="Tree Dex: scanned zones and climate-fit planting recommendations"></figure>
   </div>
   <div class="notes">
-    <section><h3>What I built</h3><p class="todo">Write: the drone, the model, the app. What you did end to end.</p></section>
-    <section><h3>What broke</h3><p class="todo">Write: dead flight controller, cold solder joints, the first crash, bad labels. Pick the best story.</p></section>
-    <section><h3>What I learned</h3><p class="todo">Write: what hardware taught you that software didn't.</p></section>
-    <section><h3>Results</h3><p class="todo">Write: where it is now and where it's going.</p></section>
+    <section><h3>What I built</h3><p>A quadcopter from a box of parts: QAV250 frame, SpeedyBee F405 stack, ExpressLRS radio, M8N GPS. I taught myself to solder, flash firmware and configure Betaflight from zero.</p><p>Then I gave it eyes. A Raspberry Pi Zero 2W rides on board, powered by a UBEC I soldered in, running a YOLOv8n tree detector I trained on 5,855 aerial canopy images. Every detection gets tagged with live GPS pulled from the flight controller and lands in Tree Dex, my web app that maps the trees and recommends climate-smart species to plant for any ZIP code.</p></section>
+    <section><h3>What broke</h3><p>My first flight controller was an unlabeled clone. Flashing it took two days: Windows driver fights, a Linux dual boot, and a boot mode that only worked once I desoldered power to the GPS and receiver. When it finally flashed, it had no gyro. I matched the OSD chip and pad layout until I identified it as an Aocoda-RC F405 V2, and the gyro came back.</p><p>The motors still wouldn't spin. My multimeter showed 15V at the ESC and clean motor wires, so the ESC itself was dead. I replaced the whole stack. The bigger lesson was my solder: cheap solder wouldn't stick, so I kept cooking the pads. Good flux core solder flowed in seconds.</p></section>
+    <section><h3>What I learned</h3><p>Hardware fails quietly. My GPS icon turned red with zero connection behind it. My radio said armed and nothing spun. A library handshake hung for 10 seconds with no error. Now I trust the status line over the icon, wrap every hardware call in a timeout, and bench test boards before I solder them.</p><p>Working on the bench is not working in flight. On my first survey flight, GPS telemetry cut out while detection kept running. My top suspect is a solder joint failing under vibration.</p></section>
+    <section><h3>Results</h3><p>10+ test flights at home and local parks, flown legally with an FAA TRUST certificate and a Remote ID module. The first real survey logged 442 GPS-tagged tree detections, which the map clusters into zones by density.</p><p>Next: fix the in-flight GPS dropout, then canopy and heat-gap mapping, tree health monitoring and locust risk flagging.</p></section>
   </div>
 </article>
 <nav class="next wrap"><a href="gteam.html">next: G-Team</a></nav>
